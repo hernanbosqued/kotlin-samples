@@ -1,6 +1,7 @@
 package hernanbosqued.samples.hello
 
 import hernanbosqued.samples.library.MyClass
+import java.io.File
 
 fun main(args: Array<String>) {
     if (args.isEmpty()) {

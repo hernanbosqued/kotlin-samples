@@ -14,6 +14,6 @@ fun main(args: Array<String>) {
 
     Thread.sleep(2000) // wait for 2 seconds
     println("Stop")
-    println("hello")
 }
+
 
