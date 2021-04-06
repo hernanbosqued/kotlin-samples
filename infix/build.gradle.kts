@@ -1,8 +1,8 @@
 //gradle command-line run:
-//gradle run --args="hernan atlanta"
+//gradle run --args=hernan
 
 //jar command-line run:
-//java -jar hello-1.0.0.jar hernan atlanta
+//java -jar hello-1.0.0.jar hernan
 
 plugins {
     application
