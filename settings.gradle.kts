@@ -11,5 +11,6 @@ include(
     "inline",
     "reified",
     "sealed",
-    "lambda"
+    "lambda",
+    "delegates"
 )

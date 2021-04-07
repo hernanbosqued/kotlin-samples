@@ -1,4 +1,4 @@
-package hernanbosqued.samples.coroutines
+package hernanbosqued.samples.coroutines.launch
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
