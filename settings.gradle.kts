@@ -1,3 +1,15 @@
 rootProject.name = "samples"
 
-include("library", "hello", "coroutines", "extensions", "template", "operators", "infix", "inline")
+include(
+    "library",
+    "hello",
+    "coroutines",
+    "extensions",
+    "template",
+    "operators",
+    "infix",
+    "inline",
+    "reified",
+    "sealed",
+    "lambda"
+)

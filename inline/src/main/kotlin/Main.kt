@@ -1,13 +1,19 @@
 package hernanbosqued.samples
 
-inline fun List<Int>.myForeach(block: (Int) -> Unit) {
+inline fun List<Int>.myForEach(block: (Int) -> Unit) {
     for (i in this) {
-        block.invoke(i)
+        block(i)
+    }
+}
+
+inline fun <reified T> List<T>.myReifiedForEach(block: (T) -> Unit) {
+    for (i in this) {
+        block(i)
     }
 }
 
 fun contains20(list: List<Int>): Boolean {
-    list.myForeach {
+    list.myForEach {
         println(it.toString())
         if (it == 20) {
             return true
