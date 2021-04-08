@@ -1,5 +1,7 @@
 package hernanbosqued.samples.library
 
-class MyClass{
+fun String.Companion.empty() = ""
+
+class MyClass {
     override fun toString(): String = "hello, i'm a MyClass instance"
 }

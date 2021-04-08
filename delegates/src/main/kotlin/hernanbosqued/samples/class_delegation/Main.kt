@@ -1,4 +1,4 @@
-package hernanbosqued.samples.a
+package hernanbosqued.samples.class_delegation
 
 interface Base {
     val message: String
