@@ -3,7 +3,7 @@ plugins {
 }
 
 application {
-    mainClassName = "hernanbosqued.samples.coroutines.CoroutinesKt"
+    mainClassName = "hernanbosqued.samples.MainKt"
 }
 
 dependencies {
