@@ -1,4 +1,4 @@
-import hernanbosqued.samples.property_delegation.MyLazy
+import hernanbosqued.samples.property_delegation.LazyDelegate
 import hernanbosqued.samples.property_delegation.UpperCaseDelegate
 import org.junit.After
 import org.junit.Assert
@@ -19,7 +19,7 @@ class Tests {
 
     @Test
     fun test1() {
-        val lazy: String by MyLazy { "lazy" }
+        val lazy: String by LazyDelegate { "lazy" }
 
         Assert.assertEquals("lazy", lazy)
     }
