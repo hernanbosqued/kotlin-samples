@@ -1,2 +1,6 @@
+plugins {
+    `java-library`
+}
+
 dependencies {
 }

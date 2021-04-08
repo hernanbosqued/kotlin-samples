@@ -1,5 +1,5 @@
-import hernanbosqued.samples.property_delegation.LazyDelegate
-import hernanbosqued.samples.property_delegation.UpperCaseDelegate
+import hernanbosqued.samples.LazyDelegate
+import hernanbosqued.samples.UpperCaseDelegate
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
