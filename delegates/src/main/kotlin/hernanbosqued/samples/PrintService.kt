@@ -2,12 +2,14 @@ package hernanbosqued.samples
 
 interface PrintService {
     val message: String
+    val message2: String
     fun printMessage()
     fun printHello()
 }
 
 class PrintServiceImpl : PrintService {
     override val message = "delegate message"
+    override val message2 = "delegate message 2"
     override fun printMessage() = println(message)
     override fun printHello() = println("Hello from delegate")
     fun anotherFun() = "this method cannot be overridden in the derived class because it isn't in the interface"
