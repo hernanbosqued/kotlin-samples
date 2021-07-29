@@ -12,5 +12,7 @@ include(
     "reified",
     "sealed",
     "lambda",
-    "delegates"
+    "delegates",
+    "covariance",
+    "glide"
 )
