@@ -21,7 +21,7 @@ package hernanbosqued.samples
 class Project {
     private val result = mutableMapOf<String, MutableList<Pair<Int, Int>>>()
 
-    fun compile_lookup(pages: List<String>) {
+    fun compileLookup(pages: List<String>) {
 
         pages.forEachIndexed { pageIndex, page ->
             val words = page.filter { it != ',' }.split(" ")
@@ -34,7 +34,7 @@ class Project {
         }
     }
 
-    fun lookup_word(parameter: String): List<Pair<Int, Int>> {
+    fun lookupWord(parameter: String): List<Pair<Int, Int>> {
         return result[parameter.toLowerCase()] ?: emptyList()
     }
 }
@@ -46,15 +46,15 @@ fun main(args: Array<String>) {
     )
 
     val project = Project()
-    project.compile_lookup(pages)
+    project.compileLookup(pages)
 
-    project.lookup_word("dark").also {
+    project.lookupWord("dark").also {
         println(it)
     }
-    project.lookup_word("it").also {
+    project.lookupWord("it").also {
         println(it)
     }
-    project.lookup_word("stormy").also {
+    project.lookupWord("stormy").also {
         println(it)
     }
 }
