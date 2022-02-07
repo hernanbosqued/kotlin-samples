@@ -13,60 +13,29 @@ class Game {
     private var currentPlayer = players[0]
     private val reader = Scanner(System.`in`)
 
-    private fun minimax(isComputer: Boolean, player: Char): Int {
-        return when (hasWinner(player)) {
-            'O' -> {
-                -1
-            }
-            'X' -> {
-                1
-            }
-            'T' -> {
-                0
-            }
-            else -> {
-                if (isComputer) {
-                    var bestMove = Int.MIN_VALUE
-                    board.board.forEachIndexed { index, c ->
-                        if (board.isEmpty(index, players)) {
-                            board.place(index, 'X')
-                            val score = minimax(isComputer = false, player = 'X')
-                            board.place(index, c)
-                            bestMove = Integer.max(bestMove, score)
-                        }
-                    }
-                    bestMove
-                } else {
-                    var bestMove = Int.MAX_VALUE
-                    board.board.forEachIndexed { index, c ->
-                        if (board.isEmpty(index, players)) {
-                            board.place(index, 'O')
-                            val score = minimax(isComputer = true, player = 'O')
-                            board.place(index, c)
-                            bestMove = Integer.min(bestMove, score)
-                        }
-                    }
-                    bestMove
-                }
-            }
+    private fun minimax(isComputer: Boolean): Int {
+        return when (hasWinner(if (isComputer) 'X' else 'O')) {
+            'X' -> 1
+            'O' -> -1
+            'T' -> 0
+            else -> bestMove(!isComputer).first
         }
     }
 
-    private fun computerMove() {
-        var bestScore = Int.MIN_VALUE
-        var bestIndex = Int.MIN_VALUE
+    private fun bestMove(isComputer: Boolean): Pair<Int, Int> {
+        var result = (if (isComputer) Int.MIN_VALUE else Int.MAX_VALUE) to -1
+
         board.board.forEachIndexed { index, c ->
             if (board.isEmpty(index, players)) {
-                board.place(index, 'X')
-                val score = minimax(isComputer = false, player = 'X')
+                board.place(index, if (isComputer) 'X' else 'O')
+                val score = minimax(isComputer = isComputer)
                 board.place(index, c)
-                if (score > bestScore) {
-                    bestScore = score
-                    bestIndex = index
+                if ((isComputer && score > result.first) || (!isComputer && score < result.first)) {
+                    result = score to index
                 }
             }
         }
-        board.place(bestIndex, 'X')
+        return result
     }
 
     private fun playerMove() {
@@ -86,7 +55,8 @@ class Game {
             if (currentPlayer == 'O') {
                 playerMove()
             } else {
-                computerMove()
+                val bestMove = bestMove(true)
+                board.place(bestMove.second, 'X')
             }
 
             moves++
@@ -130,6 +100,8 @@ class Board {
         if ((index + 1) % 3 == 0) {
             print("\n")
         }
+    }.also {
+        print("\n")
     }
 
     override fun toString(): String {
