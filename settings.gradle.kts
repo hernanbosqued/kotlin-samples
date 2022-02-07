@@ -14,5 +14,7 @@ include(
     "lambda",
     "delegates",
     "covariance",
-    "glide"
+    "glide",
+    "processing",
+    "tictactoe"
 )
