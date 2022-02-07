@@ -65,16 +65,16 @@ class Game {
     }
 
     private fun hasWinner(player: Char): Char? {
-        val hasWinner = (board.board[0] == board.board[1] && board.board[1] == board.board[2]) ||
-                (board.board[3] == board.board[4] && board.board[4] == board.board[5]) ||
-                (board.board[6] == board.board[7] && board.board[7] == board.board[8]) ||
+        val hasWinner = (board.board[0] == player && board.board[1] == player && board.board[2] == player) ||
+                (board.board[3] == player && board.board[4] == player && board.board[5] == player) ||
+                (board.board[6] == player && board.board[7] == player && board.board[8] == player) ||
 
-                (board.board[0] == board.board[3] && board.board[3] == board.board[6]) ||
-                (board.board[1] == board.board[4] && board.board[4] == board.board[7]) ||
-                (board.board[2] == board.board[5] && board.board[5] == board.board[8]) ||
+                (board.board[0] == player && board.board[3] == player && board.board[6] == player) ||
+                (board.board[1] == player && board.board[4] == player && board.board[7] == player) ||
+                (board.board[2] == player && board.board[5] == player && board.board[8] == player) ||
 
-                (board.board[0] == board.board[4] && board.board[4] == board.board[8]) ||
-                (board.board[6] == board.board[4] && board.board[4] == board.board[2])
+                (board.board[0] == player && board.board[4] == player && board.board[8] == player) ||
+                (board.board[6] == player && board.board[4] == player && board.board[2] == player)
 
         return when {
             board.empties(players).isEmpty() && hasWinner.not() -> 'T'
@@ -85,18 +85,18 @@ class Game {
 }
 
 class Board {
-    val board = arrayOf('1', '2', '3', '4', '5', '6', '7', '8', '9')
+    val board = arrayOf<Char?>(null, null, null, null, null, null, null, null, null)
 
     fun isEmpty(index: Int, players: Array<Char>) = players.none { player -> player == board[index] }
 
     fun empties(players: Array<Char>) = board.filter { item -> players.none { player -> player == item } }
 
-    fun place(index: Int, player: Char) {
+    fun place(index: Int, player: Char?) {
         board[index] = player
     }
 
     fun print() = board.forEachIndexed { index, c ->
-        print(" $c ")
+        print(" ${c?:'.'}")
         if ((index + 1) % 3 == 0) {
             print("\n")
         }
