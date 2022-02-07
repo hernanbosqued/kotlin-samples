@@ -103,16 +103,5 @@ class Board {
     }.also {
         print("\n")
     }
-
-    override fun toString(): String {
-        var str = String()
-        board.forEachIndexed { index, c ->
-            str += " $c "
-            if ((index + 1) % 3 == 0) {
-                str += "\n"
-            }
-        }
-        return str
-    }
 }
 
