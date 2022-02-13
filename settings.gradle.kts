@@ -16,5 +16,6 @@ include(
     "covariance",
     "glide",
     "processing",
-    "tictactoe"
+    "tictactoe",
+    "ktor"
 )

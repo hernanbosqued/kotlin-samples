@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.3.50"
+    kotlin("jvm") version "1.6.10"
 }
 
 repositories {
@@ -22,7 +22,7 @@ subprojects {
     }
 
     dependencies {
-        implementation(kotlin("stdlib-jdk8"))
+        implementation(kotlin("stdlib"))
     }
 
     repositories {

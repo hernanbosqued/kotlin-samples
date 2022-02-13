@@ -13,9 +13,7 @@ fun main(args: Array<String>) {
     val json = """{"age":42,"name":"Hernan Bosqued"}"""
 
     val (age, name) = fromJson<Person>(json)
-    val resultStr = """Person name: $name
-Person age: $age"""
-
+    val resultStr = """Person name: $name Person age: $age"""
 
     println(resultStr)
 }
