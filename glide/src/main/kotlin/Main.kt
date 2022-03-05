@@ -1,5 +1,7 @@
 package hernanbosqued.samples
 
+import org.junit.Test
+
 /*
     Implement compile_lookup, lookup_word so that:
     * compile_lookup takes an array of "pages" from a book and create an

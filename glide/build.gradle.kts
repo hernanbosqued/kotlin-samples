@@ -14,6 +14,7 @@ application {
 
 dependencies {
     api(project(":library"))
+    implementation("junit:junit:4.12")
 }
 
 tasks.jar {
