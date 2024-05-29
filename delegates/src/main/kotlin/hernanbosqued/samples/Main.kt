@@ -11,6 +11,7 @@ fun main() {
 
     val b = PrintServiceImpl()
     EnhancedPrintServiceImpl(b).printMessage()
+    println(EnhancedPrintServiceImpl(b).message)
     EnhancedPrintServiceImpl(b).printHello()
     EnhancedPrintServiceImpl(b).printHelloFromDelegate()
 

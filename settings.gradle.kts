@@ -17,5 +17,6 @@ include(
     "glide",
     "processing",
     "tictactoe",
-    "ktor"
+    "ktor",
+    "modelado"
 )
