@@ -1,5 +1,5 @@
 package hernanbosqued.modelado.steering
 
 interface SteeringWheel{
-    fun steer(steeringWheelPosition: SteeringWheelPosition)
+    var directionPair: Pair<Direction,Direction>
 }
