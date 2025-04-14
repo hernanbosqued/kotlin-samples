@@ -8,10 +8,6 @@ plugins {
     application
 }
 
-application {
-    mainClassName = "hernanbosqued.samples.MainKt"
-}
-
 dependencies {
     api(project(":library"))
     implementation("io.ktor:ktor-server-core:1.6.7")
@@ -19,8 +15,10 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.2.5")}
 
 tasks.jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
     manifest {
-        attributes["Main-Class"] = application.mainClassName
+        attributes["Main-Class"] = "hernanbosqued.samples.MainKt"
     }
 
     configurations["compileClasspath"].forEach { file: File ->

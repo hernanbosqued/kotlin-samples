@@ -1,7 +1,6 @@
 package hernanbosqued.modelado.steering
 
-class SteeringDiagonal: SteeringWheel {
-    override var directionPair: Pair<Direction, Direction> = Direction.NEUTRAL to Direction.POSITIVE
+class SteeringDiagonal: SteeringWheel() {
 
     fun steer(steeringWheelPosition: SteeringWheelDiagonal) {
         directionPair = when(steeringWheelPosition){

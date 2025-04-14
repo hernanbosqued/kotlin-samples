@@ -5,16 +5,12 @@ plugins {
     application
 }
 
-application {
-    mainClassName = "hernanbosqued.samples.hello.HelloKt"
-}
-
 dependencies {
     api(project(":library"))
 }
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = application.mainClassName
+        attributes["Main-Class"] = "hernanbosqued.samples.hello.HelloKt"
     }
 }

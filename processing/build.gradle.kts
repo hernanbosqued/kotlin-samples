@@ -8,18 +8,16 @@ plugins {
     application
 }
 
-application {
-    mainClassName = "hernanbosqued.samples.processing.MainKt"
-}
-
 dependencies {
     api(project(":library"))
     implementation("org.processing:core:3.3.6")
 }
 
 tasks.jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
     manifest {
-        attributes["Main-Class"] = application.mainClassName
+        attributes["Main-Class"] = "hernanbosqued.samples.processing.MainKt"
     }
 
     configurations["compileClasspath"].forEach { file: File ->

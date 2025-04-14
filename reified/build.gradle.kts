@@ -8,18 +8,14 @@ plugins {
     application
 }
 
-application {
-    mainClassName = "hernanbosqued.samples.MainKt"
-}
-
 dependencies {
     api(project(":library"))
-    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.google.code.gson:gson:2.8.9")
 }
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = application.mainClassName
+        attributes["Main-Class"] = "hernanbosqued.samples.MainKt"
     }
 
     configurations["compileClasspath"].forEach { file: File ->

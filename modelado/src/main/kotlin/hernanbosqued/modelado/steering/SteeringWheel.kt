@@ -1,5 +1,5 @@
 package hernanbosqued.modelado.steering
 
-interface SteeringWheel{
-    var directionPair: Pair<Direction,Direction>
+abstract class SteeringWheel{
+    open var directionPair: Pair<Direction,Direction> = Direction.NEUTRAL to Direction.POSITIVE
 }

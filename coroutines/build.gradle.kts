@@ -3,7 +3,7 @@ plugins {
 }
 
 application {
-    mainClassName = "hernanbosqued.samples.MainKt"
+    mainClass.set("hernanbosqued.samples.MainKt")
 }
 
 dependencies {
@@ -13,7 +13,7 @@ dependencies {
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = application.mainClassName
+        attributes["Main-Class"] = "hernanbosqued.samples.MainKt"
     }
 
     configurations["compileClasspath"].forEach { file: File ->

@@ -8,10 +8,6 @@ plugins {
     application
 }
 
-application {
-    mainClassName = "hernanbosqued.samples.MainKt"
-}
-
 dependencies {
     api(project(":library"))
     testImplementation("junit:junit:4.12")
@@ -19,7 +15,7 @@ dependencies {
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = application.mainClassName
+        attributes["Main-Class"] = "hernanbosqued.samples.MainKt"
     }
 
     configurations["compileClasspath"].forEach { file: File ->
