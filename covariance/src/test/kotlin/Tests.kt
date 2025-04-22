@@ -7,7 +7,6 @@ import org.junit.Before
 import org.junit.Test
 
 class Tests {
-
     @Before
     fun before() {
         println("BEFORE")

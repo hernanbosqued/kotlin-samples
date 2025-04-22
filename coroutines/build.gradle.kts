@@ -17,7 +17,7 @@ tasks.jar {
     }
 
     configurations["compileClasspath"].forEach { file: File ->
-        if(file.isFile){
+        if (file.isFile) {
             from(zipTree(file.absoluteFile))
         }
     }

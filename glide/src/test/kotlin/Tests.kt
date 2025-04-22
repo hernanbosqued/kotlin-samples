@@ -5,13 +5,12 @@ import org.junit.Before
 import org.junit.Test
 
 class Tests {
-
     private lateinit var project: Project
-    private val pages = listOf(
-        "It, was a dark and stormy night",
-        "it was a dark time"
-    )
-
+    private val pages =
+        listOf(
+            "It, was a dark and stormy night",
+            "it was a dark time",
+        )
 
     @Before
     fun before() {

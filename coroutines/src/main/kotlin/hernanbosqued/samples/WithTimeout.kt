@@ -4,19 +4,18 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 
-class WithTimeout{
+class WithTimeout {
     fun run() {
         try {
-            runBlocking{
+            runBlocking {
                 withTimeout(1000L) {
                     task()
                     println("task done")
                 }
             }
-        }catch (err: Exception){
+        } catch (err: Exception) {
             println(err.message)
         }
-
     }
 
     private suspend fun task(): Int {

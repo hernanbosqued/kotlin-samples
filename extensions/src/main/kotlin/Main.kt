@@ -1,6 +1,6 @@
 package hernanbosqued.samples
 
-import java.util.*
+import java.util.Date
 
 fun main(args: Array<String>) {
     println(16.binary) // 10000

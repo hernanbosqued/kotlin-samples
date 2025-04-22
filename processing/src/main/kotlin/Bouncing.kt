@@ -7,23 +7,32 @@ class Ball(
     position: Position,
     velocity: Velocity,
     val radius: Float,
-    val color: Triple<Float, Float, Float>  // RGB
+    val color: Triple<Float, Float, Float>,
 ) : Thing(position, velocity)
 
 class BouncingBalls() : PApplet() {
     fun createBall(): Ball {
         return Ball(
             Position(0f, 100f),
-            Velocity(PVector.fromAngle(-QUARTER_PI) * random(2f, 10f)),  // random velocity
-            random(10f, 30f),                                            // random radius
-            Triple(random(0f,255f), random(0f,255f), random(0f,255f)))   // random color
+            Velocity(PVector.fromAngle(-QUARTER_PI) * random(2f, 10f)),
+            random(10f, 30f),
+            Triple(random(0f, 255f), random(0f, 255f), random(0f, 255f)),
+        )
     }
 
-    val balls = mutableListOf(
-        createBall(), createBall(), createBall(), createBall(),
-        createBall(), createBall(), createBall(), createBall())
+    val balls =
+        mutableListOf(
+            createBall(),
+            createBall(),
+            createBall(),
+            createBall(),
+            createBall(),
+            createBall(),
+            createBall(),
+            createBall(),
+        )
 
-    val Gravity = Acceleration(0f, 0.5f)
+    val gravity = Acceleration(0f, 0.5f)
 
     override fun settings() {
         size(640, 360)
@@ -39,7 +48,7 @@ class BouncingBalls() : PApplet() {
         background(255)
 
         balls.forEach {
-            it.apply(Gravity)
+            it.apply(gravity)
             it.updatePosition(this::bounce)
         }
 
@@ -61,16 +70,15 @@ class BouncingBalls() : PApplet() {
     fun bounce(g: Thing) =
         if (g is Ball) {
             // Simulate bouncing: for any balls below the bottom ...
-            if (g.position.y > height - g.radius)
-                Pair(                      // keep it in screen, and ...
+            if (g.position.y > height - g.radius) {
+                Pair(
                     Position(g.position.x, (height - g.radius).toFloat()),
-                    Velocity(g.velocity.x, g.velocity.y * -0.85f))
-            // reverse velocity's y-component.
-            // coefficient of restitution = 0.85
-            else
+                    Velocity(g.velocity.x, g.velocity.y * -0.85f),
+                )
+            } else {
                 Pair(g.position, g.velocity)
-        }
-        else {
+            }
+        } else {
             throw IllegalArgumentException()
         }
 
@@ -114,7 +122,7 @@ open class Thing(val position: Position, val velocity: Velocity, val mass: Float
         position.add(velocity)
 
         correction?.let {
-            val (p,v) = it(this)
+            val (p, v) = it(this)
             position.set(p)
             velocity.set(v)
         }
@@ -137,14 +145,23 @@ operator fun PVector.div(n: Float): PVector {
     return PVector.div(this, n)
 }
 
-fun PApplet.circle(center: PVector, radius: Number) {
+fun PApplet.circle(
+    center: PVector,
+    radius: Number,
+) {
     this.ellipse(center.x, center.y, radius.toFloat(), radius.toFloat())
 }
 
-fun PApplet.fill(color: Triple<Float, Float, Float>, alpha: Number) {
+fun PApplet.fill(
+    color: Triple<Float, Float, Float>,
+    alpha: Number,
+) {
     this.fill(color.first, color.second, color.third, alpha.toFloat())
 }
 
-fun PApplet.stroke(color: Triple<Float, Float, Float>, alpha: Number) {
+fun PApplet.stroke(
+    color: Triple<Float, Float, Float>,
+    alpha: Number,
+) {
     this.stroke(color.first, color.second, color.third, alpha.toFloat())
 }

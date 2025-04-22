@@ -32,13 +32,13 @@ fun makeString(lambda: TextMaker.() -> Unit): String {
 }
 
 fun main(args: Array<String>) {
-
-    val result = makeString {
-        addAtlanta()
-        addHernan()
-        addAtlanta()
-        addHernan()
-    }
+    val result =
+        makeString {
+            addAtlanta()
+            addHernan()
+            addAtlanta()
+            addHernan()
+        }
 
     println(result)
 }

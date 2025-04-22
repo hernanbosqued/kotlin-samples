@@ -4,7 +4,6 @@ import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlin.system.measureTimeMillis
 
@@ -18,31 +17,34 @@ suspend fun doSomethingUsefulTwo(): Int {
     return 29
 }
 
-fun measure() = runBlocking {
+fun measure() =
+    runBlocking {
+        var time =
+            measureTimeMillis {
+                val one = doSomethingUsefulOne()
+                val two = doSomethingUsefulTwo()
+                println("The answer is ${one + two}")
+            }
+        println("Completed SYNC in $time ms")
 
-    var time = measureTimeMillis {
-        val one = doSomethingUsefulOne()
-        val two = doSomethingUsefulTwo()
-        println("The answer is ${one + two}")
-    }
-    println("Completed SYNC in $time ms")
-
-    coroutineScope {
-        time = measureTimeMillis {
-            val one = async { doSomethingUsefulOne() }
-            val two = async { doSomethingUsefulTwo() }
-            println("The answer is ${one.await() + two.await()}")
+        coroutineScope {
+            time =
+                measureTimeMillis {
+                    val one = async { doSomethingUsefulOne() }
+                    val two = async { doSomethingUsefulTwo() }
+                    println("The answer is ${one.await() + two.await()}")
+                }
+            println("Completed ASYNC in $time ms")
         }
-        println("Completed ASYNC in $time ms")
-    }
 
-    time = measureTimeMillis {
-        val one = async(start = CoroutineStart.LAZY) { doSomethingUsefulOne() }
-        val two = async(start = CoroutineStart.LAZY) { doSomethingUsefulTwo() }
+        time =
+            measureTimeMillis {
+                val one = async(start = CoroutineStart.LAZY) { doSomethingUsefulOne() }
+                val two = async(start = CoroutineStart.LAZY) { doSomethingUsefulTwo() }
 
-        one.start()
-        two.start()
-        println("The answer is ${one.await() + two.await()}")
+                one.start()
+                two.start()
+                println("The answer is ${one.await() + two.await()}")
+            }
+        println("Completed LAZY in $time ms")
     }
-    println("Completed LAZY in $time ms")
-}

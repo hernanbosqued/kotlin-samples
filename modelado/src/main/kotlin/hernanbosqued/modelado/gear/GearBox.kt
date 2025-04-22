@@ -1,20 +1,23 @@
 package hernanbosqued.modelado.gear
 
 class GearBox private constructor(
-    private val relationMap: Map<Gear, Int>
-): GearStick, GearRelation {
+    private val relationMap: Map<Gear, Int>,
+) : GearStick, GearRelation {
     private var currentGear: Gear = Gear.NEUTRAL
 
-    override fun getRelation(): Int = relationMap[currentGear]?:throw RuntimeException()
+    override fun getRelation(): Int = relationMap[currentGear] ?: throw RuntimeException()
 
     override fun gear(gear: Gear) {
         currentGear = gear
     }
 
-    class Builder{
-        private val gearRelationMap: MutableMap<Gear,Int> = mutableMapOf()
+    class Builder {
+        private val gearRelationMap: MutableMap<Gear, Int> = mutableMapOf()
 
-        fun addGearRelation(gear: Gear, relation: Int): Builder {
+        fun addGearRelation(
+            gear: Gear,
+            relation: Int,
+        ): Builder {
             gearRelationMap[gear] = relation
             return this
         }

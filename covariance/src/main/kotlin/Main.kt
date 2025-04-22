@@ -2,20 +2,26 @@ package hernanbosqued.samples
 
 interface MyList<out T> {
     fun getValue(index: Int): T
+
     fun contains(element: @UnsafeVariance T): Boolean
 }
 
 class Comparator<in T> {
-    fun compare(first: T, second: T): Boolean {
+    fun compare(
+        first: T,
+        second: T,
+    ): Boolean {
         return first == second
     }
 }
 
-sealed class Animal{
-    sealed class Gato : Animal(){
+sealed class Animal {
+    sealed class Gato : Animal() {
         object Siames : Gato()
+
         object Persa : Gato()
     }
+
     object Perro : Animal()
 }
 

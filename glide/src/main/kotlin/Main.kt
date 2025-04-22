@@ -1,12 +1,10 @@
 package hernanbosqued.samples
 
-import org.junit.Test
-
 /*
     Implement compile_lookup, lookup_word so that:
-    * compile_lookup takes an array of "pages" from a book and create an
+ * compile_lookup takes an array of "pages" from a book and create an
       index for each word,
-    * once the index has been constructed, lookup_word will return the
+ * once the index has been constructed, lookup_word will return the
       list of (page, position) for that word in the book.
 
     In pseudocode:
@@ -24,7 +22,6 @@ class Project {
     private val result = mutableMapOf<String, MutableList<Pair<Int, Int>>>()
 
     fun compileLookup(pages: List<String>) {
-
         pages.forEachIndexed { pageIndex, page ->
             val words = page.filter { it != ',' }.split(" ")
 
@@ -42,10 +39,11 @@ class Project {
 }
 
 fun main(args: Array<String>) {
-    val pages = listOf(
-        "It, was a dark and stormy night",
-        "it was a dark time"
-    )
+    val pages =
+        listOf(
+            "It, was a dark and stormy night",
+            "it was a dark time",
+        )
 
     val project = Project()
     project.compileLookup(pages)

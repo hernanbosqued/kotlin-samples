@@ -1,5 +1,5 @@
-//gradle command-line run: gradle run --args=hernan
-//jar command-line run: java -jar hello-1.0.0.jar hernan
+// gradle command-line run: gradle run --args=hernan
+// jar command-line run: java -jar hello-1.0.0.jar hernan
 
 plugins {
     application

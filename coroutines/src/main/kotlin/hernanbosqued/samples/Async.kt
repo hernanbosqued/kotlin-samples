@@ -4,7 +4,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
-class Async{
+class Async {
     fun addAsync(): Int {
         var result = 0
 

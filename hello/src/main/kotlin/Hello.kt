@@ -8,5 +8,5 @@ fun main(args: Array<String>) {
         return
     }
     println("Hello, ${args[0]}!")
-    println( MyClass().toString())
+    println(MyClass().toString())
 }

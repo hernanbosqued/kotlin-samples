@@ -1,8 +1,8 @@
-//gradle command-line run:
-//gradle run --args=hernan
+// gradle command-line run:
+// gradle run --args=hernan
 
-//jar command-line run:
-//java -jar hello-1.0.0.jar hernan
+// jar command-line run:
+// java -jar hello-1.0.0.jar hernan
 
 plugins {
     application
@@ -18,7 +18,7 @@ tasks.jar {
     }
 
     configurations["compileClasspath"].forEach { file: File ->
-        if(file.isFile){
+        if (file.isFile) {
             from(zipTree(file.absoluteFile))
         }
     }

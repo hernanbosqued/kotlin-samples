@@ -1,5 +1,5 @@
 package hernanbosqued.modelado.gear
 
-interface GearStick{
+interface GearStick {
     fun gear(gear: Gear)
 }

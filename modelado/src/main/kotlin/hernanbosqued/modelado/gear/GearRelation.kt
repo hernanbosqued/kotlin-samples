@@ -1,5 +1,5 @@
 package hernanbosqued.modelado.gear
 
-interface GearRelation{
+interface GearRelation {
     fun getRelation(): Int
 }

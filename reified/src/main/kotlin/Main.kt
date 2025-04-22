@@ -2,7 +2,6 @@ package hernanbosqued.samples
 
 import com.google.gson.Gson
 
-
 data class Person(val age: Int, val name: String)
 
 inline fun <reified T> fromJson(json: String): T {

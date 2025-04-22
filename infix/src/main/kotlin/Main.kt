@@ -3,7 +3,6 @@ package hernanbosqued.samples
 data class Color(val name: String)
 
 class Person(val name: String, var assignedColor: Color? = null) {
-
     infix fun assignColor(color: Color) {
         assignedColor = color
     }

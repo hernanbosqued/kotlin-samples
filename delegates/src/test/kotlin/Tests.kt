@@ -6,7 +6,6 @@ import org.junit.Before
 import org.junit.Test
 
 class Tests {
-
     @Before
     fun before() {
         println("BEFORE")
@@ -26,11 +25,11 @@ class Tests {
 
     @Test
     fun test2() {
-        //read only
+        // read only
         val uppercase: String by UpperCaseDelegate { "uppercase" }
         Assert.assertEquals("UPPERCASE", uppercase)
 
-        //read-write
+        // read-write
         var empty: String by UpperCaseDelegate()
         Assert.assertEquals("", empty)
         empty = "not empty"

@@ -19,5 +19,5 @@ include(
     "tictactoe",
     "ktor",
     "modelado",
-    "runCatching"
+    "runCatching",
 )
