@@ -18,5 +18,6 @@ include(
     "processing",
     "tictactoe",
     "ktor",
-    "modelado"
+    "modelado",
+    "runCatching"
 )
